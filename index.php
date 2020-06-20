@@ -1,3 +1,10 @@
+<?php
+  try {
+    require_once('funciones/dbConexion.php');
+  } catch (Exception $e) {
+    $error = $e->getMessage();
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
