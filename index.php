@@ -3,6 +3,7 @@
     require_once('funciones/dbConexion.php');
   } catch (Exception $e) {
     $error = $e->getMessage();
+    echo $error;
   }
 ?>
 <!DOCTYPE html>
