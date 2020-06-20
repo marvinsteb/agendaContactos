@@ -1,40 +1,41 @@
 html {
   box-sizing: border-box;
 }
-*, *:after, *:before {
+*,
+*:after,
+*:before {
   box-sizing: inherit;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   background-color: orange;
 }
 
-
 .contenedor {
-  max-width:1000px;
-  margin:0 auto;
+  max-width: 1000px;
+  margin: 0 auto;
   padding: 20px;
   background-color: #ffffff;
 }
-h1, h2 {
+h1,
+h2 {
   text-align: center;
-  font-family: 'Proza Libre', sans-serif;
+  font-family: "Proza Libre", sans-serif;
 }
 div.contenido {
   width: 60%;
   margin: 30px auto 0 auto;
   font-size: 24px;
 }
-div.crear{
-  padding:20px;
-  background-color: #E1E1E1;
+div.crear {
+  padding: 20px;
+  background-color: #e1e1e1;
 }
 
 h1 {
   font-size: 30px;
-  
 }
 h2 {
   font-size: 20px;
@@ -46,23 +47,23 @@ div.campo {
 div.campo label {
   width: 80px;
   float: left;
-  font-size:14px;
-  margin-right:20px;
+  font-size: 14px;
+  margin-right: 20px;
   text-align: right;
-  margin-top:8px;
-  font-family:Arial, Helvetica, sans-serif;
+  margin-top: 8px;
+  font-family: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   font-weight: bold;
 }
 div.campo input {
-  height:30px;
+  height: 30px;
   width: 70%;
   padding: 10px;
 }
 .boton {
   background-color: orange;
-  border:none;
-  padding:10px 30px;
+  border: none;
+  padding: 10px 30px;
   cursor: pointer;
   color: white;
   font-size: 16px;
@@ -73,24 +74,24 @@ div.existentes {
   padding: 20px;
   background-color: #e1e1e1;
 }
-div.existentes  table {
+div.existentes table {
   width: 100%;
   font-family: geneva;
   font-size: 16px;
   border-collapse: collapse;
 }
-div.existentes  table thead {
+div.existentes table thead {
   background-color: #ff9800;
 }
 div.existentes table thead th {
-    padding:10px 0;
-    color: white;
-    text-transform: uppercase;
+  padding: 10px 0;
+  color: white;
+  text-transform: uppercase;
 }
 div.existentes table tbody tr:nth-child(even) {
   background-color: #9e9e9e;
 }
-div.existentes  table a {
+div.existentes table a {
   background-color: #3f51b5;
   padding: 5px 10px;
   display: block;
@@ -99,7 +100,7 @@ div.existentes  table a {
   text-transform: uppercase;
   text-decoration: none;
 }
-div.existentes  table td {
+div.existentes table td {
   padding: 10px 0;
   line-height: 20px;
 }
@@ -121,33 +122,33 @@ a.volver {
   font-weight: bold;
 }
 
-#spinner{
+#spinner {
   display: none;
 }
 
 #mensaje {
   margin-top: 10px;
-  border:1px solid green;
-  height:50px;
+  border: 1px solid green;
+  height: 50px;
   line-height: 50px;
   color: white;
   text-transform: uppercase;
   background-color: green;
-  opacity:0;
+  opacity: 0;
   text-align: center;
-  font-family: arial,helvetica, sans-serif;
+  font-family: arial, helvetica, sans-serif;
 }
 
 div#borrado {
-    background-color: red;
-    padding: 10px;
-    text-align: center;
-    color: white;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-family: arial,helvetica;
-    font-size: 16px;
-    opacity:0;
+  background-color: red;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: arial, helvetica;
+  font-size: 16px;
+  opacity: 0;
 }
 
 button.borrar {
@@ -167,7 +168,7 @@ button.borrar {
 }
 
 .activo {
-  background-color: red!important;
+  background-color: red !important;
 }
 
 div.buscar {
@@ -184,17 +185,24 @@ div.buscar h2 {
 }
 
 @keyframes mostrar {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @keyframes ocultar {
-  0%   { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 .mostrar {
-  animation: mostrar .5s ease-in 1 forwards;
+  animation: mostrar 0.5s ease-in 1 forwards;
 }
 .ocultar {
-  animation: ocultar .5s ease-in 1 alternate;
+  animation: ocultar 0.5s ease-in 1 alternate;
 }
-
