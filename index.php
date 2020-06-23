@@ -61,8 +61,8 @@
             foreach ($usuario as $llave => $valor) {
               echo "<th>{$valor}</th>";
             }
-             echo "<th>Editar <th>";
-             echo "<th>Borrar <th>";
+             echo "<th>Editar </th>";
+             echo "<th>Borrar </th>";
             echo "</tr>";
           } 
         ?>
