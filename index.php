@@ -1,6 +1,12 @@
 <?php
   try {
     require_once('funciones/dbConexion.php');
+    $querySelectContacto = "select 
+                            ct.idcontacto,
+                            ct.nombre,
+                            ct.telefono
+                            from contacto as ct order by ct.idcontacto desc ";
+    $datos = $conexion->query($querySelectContacto);
   } catch (Exception $e) {
     $error = $e->getMessage();
     echo $error;
@@ -31,9 +37,39 @@
               <input type="text" name="numero" id="numero" placeholder ="Numero telefónico">
             </label>
           </div><!--- .campo-->
-          <input type="submit" value="Agregar">
+          <input type="submit" valor="Agregar">
         </form>
       </div><!-- .contenido-->
+      <div class="contenido existentes">
+      <h2>Lista de contactos</h2>
+      <p> Numero de contactos:<?php echo $datos->num_rows;?>
+      </p>
+      <table>
+        <thead>
+         <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Numero</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+         </tr>
+        </thead>
+        <tbody>
+        <?php
+          while($usuario = $datos->fetch_assoc()) {
+            echo "<tr>";
+            foreach ($usuario as $llave => $valor) {
+              echo "<th>{$valor}</th>";
+            }
+             echo "<th>Editar <th>";
+             echo "<th>Borrar <th>";
+            echo "</tr>";
+          } 
+        ?>
+        </tbody>
+      </table>
+      </div><!-- .contenido-->
     </div><!-- .contenedor-->
+    <?php $conexion->close();?>
   </body>
 </html>
