@@ -19,7 +19,7 @@
       <h1>Agenda</h1>
       <div class="contenido crear">
         <h2>Editar contacto</h2>
-        <form action="crear.php" method="post">
+        <form action="actualizar.php" method="post">
           <div class="campo">
             <label for="nombre" >Nombre:</label>
               <input type="text" name="nombre" id="nombre" placeholder="Nombre">
@@ -29,7 +29,7 @@
             <label for="numero">Numero Tel.:</label>
             <input type="text" name="numero" id="numero" placeholder ="Numero telefónico">
           </div><!--- .campo-->
-          <input type="submit" valor="Agregar">
+          <input type="submit" valor="guardar">
         </form>
       </div><!-- .contenido-->
     </div><!-- .contenedor-->
