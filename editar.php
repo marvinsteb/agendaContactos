@@ -33,13 +33,14 @@
         <form action="actualizar.php" method="post">
           <div class="campo">
             <label for="nombre" >Nombre:</label>
-            <?php echo "<input value ='".$registros['nombre']."'type='text' name='nombre' id='nombre'>";?>
+            <input value="<?php echo $registros['nombre']; ?>" type="text" name="nombre" id="nombre">
           </div><!--- .campo-->
 
           <div class="campo">
             <label for="numero">Numero Tel.:</label>
-            <?php echo "<input value ='".$registros['telefono']."'type='text' name='numero' id='numero'>";?>
+            <input value = "<?php echo $registros['telefono']; ?> " type="text" name="numero" id="numero">
           </div><!--- .campo-->
+          <input type="hidden" name="id" value="<?php echo $idcontacto?>">
           <input type="submit" valor="guardar">
         </form>
       </div><!-- .contenido-->
