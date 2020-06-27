@@ -35,7 +35,7 @@
             <label for="numero">Numero Tel.:</label>
             <input type="text" name="numero" id="numero" placeholder ="Numero telefónico">
           </div><!--- .campo-->
-          <input type="submit" valor="Agregar">
+          <input type="submit" value="Agregar">
         </form>
       </div><!-- .contenido-->
       <div class="contenido existentes">

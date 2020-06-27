@@ -41,7 +41,7 @@
             <input value = "<?php echo $registros['telefono']; ?> " type="text" name="numero" id="numero">
           </div><!--- .campo-->
           <input type="hidden" name="id" value="<?php echo $idcontacto?>">
-          <input type="submit" valor="guardar">
+          <input type="submit" value="Guardar">
         </form>
       </div><!-- .contenido-->
     </div><!-- .contenedor-->
