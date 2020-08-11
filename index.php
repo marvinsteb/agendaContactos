@@ -70,5 +70,6 @@
       </div><!-- .contenido-->
     </div><!-- .contenedor-->
     <?php $conexion->close();?>
+    <script src="js/app.js"></script>
   </body>
 </html>
