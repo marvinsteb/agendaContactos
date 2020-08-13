@@ -143,7 +143,6 @@ div#mensaje {
   color: white;
   font-family: arial, helvetica, sans-serif;
   border-radius: 10px;
-  opacity: 0;
 }
 div#borrado {
   background-color: red;

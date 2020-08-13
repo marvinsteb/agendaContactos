@@ -1,6 +1,15 @@
 var agregarContacto = document.getElementById("agregar");
 var formulario = document.getElementById("formulario_crear_usuario");
 var action = formulario.getAttribute("action");
+var divCrear = document.getElementById("crear-contacto");
+
+function registroExitoso(nombre) {
+  var divMensaje = document.createElement("DIV");
+  divMensaje.setAttribute("id", "mensaje");
+  var texto = document.createTextNode("Creado: " + nombre);
+  divMensaje.appendChild(texto);
+  divCrear.insertBefore(divMensaje, divCrear.childNodes[4]);
+}
 
 function crearUsuario() {
   var form_datos = new FormData(formulario);
@@ -13,8 +22,10 @@ function crearUsuario() {
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
       var resultado = xhr.responseText;
-      console.log("resultado" + resultado);
       var json = JSON.parse(resultado);
+      if (json.respuesta == true) {
+        registroExitoso(json.nombre);
+      }
     }
   };
   xhr.send(form_datos);
