@@ -9,6 +9,15 @@ function registroExitoso(nombre) {
   var texto = document.createTextNode("Creado: " + nombre);
   divMensaje.appendChild(texto);
   divCrear.insertBefore(divMensaje, divCrear.childNodes[4]);
+  divMensaje.classList.add("mostrar");
+
+  setTimeout(function () {
+    divMensaje.classList.add("ocultar");
+    setTimeout(function () {
+      var divPadreMensaje = divMensaje.parentNode;
+      divPadreMensaje.removeChild(divMensaje);
+    }, 500);
+  }, 3000);
 }
 
 function crearUsuario() {
