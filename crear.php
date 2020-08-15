@@ -22,7 +22,9 @@
     if(peticion_ajax()) {
       echo json_encode(array(
         'respuesta' => $resultado,
-        'nombre' => $nombre
+        'nombre' => $nombre,
+        'telefono' => $telefono,
+        'id' => $conexion->insert_id
       ));
     } else {
           exit;
