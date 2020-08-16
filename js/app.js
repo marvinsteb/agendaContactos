@@ -2,11 +2,7 @@ var agregarContacto = document.getElementById("agregar");
 var formulario = document.getElementById("formulario_crear_usuario");
 var action = formulario.getAttribute("action");
 var divCrear = document.getElementById("crear-contacto");
-var total = 1;
-agregarContacto.addEventListener("click", function () {
-  total = total + 2;
-  alert(total);
-});
+var tablaRegistrados = document.getElementById("registrados");
 
 function registroExitoso(nombre) {
   var divMensaje = document.createElement("DIV");
@@ -37,9 +33,25 @@ function construirTemplate(nombre, telefono, idContacto) {
   var nodoBtn = document.createElement("A");
   var textoEnlace = document.createTextNode("Editar");
   nodoBtn.appendChild(textoEnlace);
-  nodobtn.href = "editar.php?id=" + idContacto;
-  var nodoTdEditar = document.createElement("TD");
-  nodoTdEditar.appendChild(nodoBtn);
+  nodoBtn.href = "editar.php?id=" + idContacto;
+  var tdEditar = document.createElement("TD");
+  tdEditar.appendChild(nodoBtn);
+
+  var checkBorrar = document.createElement("INPUT");
+  checkBorrar.input = "checkbox";
+  checkBorrar.name = idContacto;
+  checkBorrar.classList.add("borrar_contacto");
+  var tdCheckbox = document.createElement("TD");
+  tdCheckbox.classList.add("borrar");
+  tdCheckbox.appendChild(checkBorrar);
+
+  var trContacto = document.createElement("TR");
+  trContacto.appendChild(tdNombre);
+  trContacto.appendChild(tdTelefono);
+  trContacto.appendChild(tdEditar);
+  trContacto.appendChild(tdCheckbox);
+
+  tablaRegistrados.childNodes[3].appendChild(trContacto);
 }
 
 function crearUsuario() {

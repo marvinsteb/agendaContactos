@@ -46,7 +46,7 @@
       <h2>Lista de contactos</h2>
       <p> Numero de contactos:<?php echo $datos->num_rows;?>
       </p>
-      <table>
+      <table id="registrados">
         <thead>
          <tr>
           <th>Id</th>
