@@ -53,7 +53,7 @@
           <th>Nombre</th>
           <th>Numero</th>
           <th>Editar</th>
-          <th>Borrar</th>
+          <th><button type="button" name="borrar" id="btn_borrar" class="borrar">Borrar</button></th>
          </tr>
         </thead>
         <tbody>
@@ -64,7 +64,7 @@
               echo "<td>{$valor}</td>";
             }
              echo "<td class='editar'><a href='editar.php?id={$usuario['idcontacto']}'>Editar</a></td>";
-             echo "<td class='borrar'><a href='borrar.php?id={$usuario['idcontacto']}'>borrar</a></td>";
+             echo "<td class='borrar'><input class='borrar_contacto' type='checkbox' name='{$usuario['idcontacto']}'></td>";
             echo "</tr>";
           } 
         ?>
