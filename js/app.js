@@ -3,6 +3,7 @@ var formulario = document.getElementById("formulario_crear_usuario");
 var action = formulario.getAttribute("action");
 var divCrear = document.getElementById("crear-contacto");
 var tablaRegistrados = document.getElementById("registrados");
+var checkBoxesBorrar = document.getElementsByClassName("borrar_contacto");
 
 function registroExitoso(nombre) {
   var divMensaje = document.createElement("DIV");
@@ -84,3 +85,13 @@ agregarContacto.addEventListener("click", function (e) {
   e.preventDefault();
   crearUsuario();
 });
+
+for (var i = 0; i < checkBoxesBorrar.length; i++) {
+  checkBoxesBorrar[i].addEventListener("change", function () {
+    if (this.checked) {
+      this.parentNode.parentNode.classList.add("activo");
+    } else {
+      this.parentNode.parentNode.classList.remove("activo");
+    }
+  });
+}
