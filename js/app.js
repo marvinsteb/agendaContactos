@@ -4,7 +4,7 @@ var action = formulario.getAttribute("action");
 var divCrear = document.getElementById("crear-contacto");
 var tablaRegistrados = document.getElementById("registrados");
 var checkBoxesBorrar = document.getElementsByClassName("borrar_contacto");
-
+var btnBorrar = document.getElementById("btn_borrar");
 function registroExitoso(nombre) {
   var divMensaje = document.createElement("DIV");
   divMensaje.setAttribute("id", "mensaje");
@@ -95,3 +95,34 @@ for (var i = 0; i < checkBoxesBorrar.length; i++) {
     }
   });
 }
+function eliminarContactos(contactos) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "borrar.php?id=" + contactos, true);
+  xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      var resultadoContactoEliminado = xhr.responseText;
+      var jsonRespuestaContacto = JSON.parse(resultadoContactoEliminado);
+      console.log(jsonRespuestaContacto);
+      if (jsonRespuestaContacto.respuesta == false) {
+        alert('selecciona un contacto para eliminar!');
+      }else{
+        console.log('Resultado: ' + resultadoContactoEliminado)
+      }
+    }
+  };
+}
+
+function checkboxSeleccionados() {
+  var contactos = [];
+  for (var i = 0; i < checkBoxesBorrar.length; i++) {
+    if (checkBoxesBorrar[i].checked == true) {
+      contactos.push(checkBoxesBorrar[i].name);
+    }
+  }
+  eliminarContactos(contactos);
+}
+
+btn_borrar.addEventListener("click", function () {
+  checkboxSeleccionados();
+});
