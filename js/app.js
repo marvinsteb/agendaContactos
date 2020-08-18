@@ -22,6 +22,10 @@ function registroExitoso(nombre) {
 }
 
 function construirTemplate(nombre, telefono, idContacto) {
+  var tdId = document.createElement("ID");
+  var textoId = document.createTextNode(idContacto);
+  tdId.appendChild(textoId);
+
   var tdNombre = document.createElement("TD");
   var textoNombre = document.createTextNode(nombre);
   tdNombre.appendChild(textoNombre);
@@ -38,7 +42,7 @@ function construirTemplate(nombre, telefono, idContacto) {
   tdEditar.appendChild(nodoBtn);
 
   var checkBorrar = document.createElement("INPUT");
-  checkBorrar.input = "checkbox";
+  checkBorrar.type = "checkbox";
   checkBorrar.name = idContacto;
   checkBorrar.classList.add("borrar_contacto");
   var tdCheckbox = document.createElement("TD");
@@ -46,6 +50,7 @@ function construirTemplate(nombre, telefono, idContacto) {
   tdCheckbox.appendChild(checkBorrar);
 
   var trContacto = document.createElement("TR");
+  trContacto.appendChild(tdId);
   trContacto.appendChild(tdNombre);
   trContacto.appendChild(tdTelefono);
   trContacto.appendChild(tdEditar);

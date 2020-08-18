@@ -23,7 +23,7 @@
       echo json_encode(array(
         'respuesta' => $resultado,
         'nombre' => $nombre,
-        'telefono' => $telefono,
+        'telefono' => $numero ,
         'id' => $conexion->insert_id
       ));
     } else {
