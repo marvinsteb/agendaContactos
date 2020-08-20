@@ -103,14 +103,14 @@ function eliminarContactos(contactos) {
     if (xhr.readyState == 4 && xhr.status == 200) {
       var resultadoContactoEliminado = xhr.responseText;
       var jsonRespuestaContacto = JSON.parse(resultadoContactoEliminado);
-      console.log(jsonRespuestaContacto);
       if (jsonRespuestaContacto.respuesta == false) {
-        alert('selecciona un contacto para eliminar!');
-      }else{
-        console.log('Resultado: ' + resultadoContactoEliminado)
+        alert("selecciona un contacto para eliminar!");
+      } else {
+        console.log("Resultado: " + resultadoContactoEliminado);
       }
     }
   };
+  xhr.send();
 }
 
 function checkboxSeleccionados() {

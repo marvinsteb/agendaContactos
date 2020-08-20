@@ -1,40 +1,25 @@
 <?php
-  $id = isset($_GET['id']) ? $_GET['id'] : null;
+
+  function peticion_ajax(){
+    return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
+  }
+
+  $id = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : null;
 
   try {
     require_once('funciones/dbConexion.php');
     $query = "DELETE FROM `contactos`.`contacto`
-              WHERE idcontacto = {$id};";
+              WHERE idcontacto IN ({$id});";
     $resultado = $conexion->query($query);
+    if(peticion_ajax()){
+      echo json_encode(array(
+        'respuesta' => $resultado
+      ));
+    }else{
+      exit;
+    }
   } catch (Exception $e) {
     $error = $e->getMessage();
-    echo $error;
   }
-
+    $conexion->close();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/estilos.css">
-    <title>Agenda</title>
-  </head>
-  <body>
-    <div class="contenedor">
-      <h1>Agenda</h1>
-      <div class="contenido crear">
-      <?php
-       if($resultado) {
-          echo "Contacto Borrado";
-        } else {
-          echo "Error" . $conexion->error;
-        }
-        $conexion->close();
-      ?>
-      <br>
-      <a href="index.php" class="volver">Volver al inicio</a>
-      </div><!-- .contenido-->
-    </div><!-- .contenedor-->
-  </body>
-</html>
