@@ -5,6 +5,8 @@ var divCrear = document.getElementById("crear-contacto");
 var tablaRegistrados = document.getElementById("registrados");
 var checkBoxesBorrar = document.getElementsByClassName("borrar_contacto");
 var btnBorrar = document.getElementById("btn_borrar");
+var tableBody = document.getElementsByTagName("tbody");
+
 function registroExitoso(nombre) {
   var divMensaje = document.createElement("DIV");
   divMensaje.setAttribute("id", "mensaje");
@@ -95,6 +97,13 @@ for (var i = 0; i < checkBoxesBorrar.length; i++) {
     }
   });
 }
+function eliminarContactoHtml(ids_borrados) {
+  for (var i = 0; i < ids_borrados.length; i++) {
+    var contactoEliminado = document.getElementById(ids_borrados[i]);
+    tableBody[0].removeChild(contactoEliminado);
+  }
+}
+
 function eliminarContactos(contactos) {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", "borrar.php?id=" + contactos, true);
@@ -107,6 +116,7 @@ function eliminarContactos(contactos) {
         alert("selecciona un contacto para eliminar!");
       } else {
         console.log("Resultado: " + resultadoContactoEliminado);
+        eliminarContactoHtml(contactos);
       }
     }
   };

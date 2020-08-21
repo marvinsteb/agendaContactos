@@ -59,7 +59,7 @@
         <tbody>
         <?php
           while($usuario = $datos->fetch_assoc()) {
-            echo "<tr>";
+            echo "<tr id='{$usuario['idcontacto']}'>";
             foreach ($usuario as $llave => $valor) {
               echo "<td>{$valor}</td>";
             }
