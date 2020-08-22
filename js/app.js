@@ -25,7 +25,7 @@ function registroExitoso(nombre) {
 }
 
 function construirTemplate(nombre, telefono, idContacto) {
-  var tdId = document.createElement("ID");
+  var tdId = document.createElement("TD");
   var textoId = document.createTextNode(idContacto);
   tdId.appendChild(textoId);
 
@@ -53,6 +53,7 @@ function construirTemplate(nombre, telefono, idContacto) {
   tdCheckbox.appendChild(checkBorrar);
 
   var trContacto = document.createElement("TR");
+  trContacto.setAttribute("id", idContacto);
   trContacto.appendChild(tdId);
   trContacto.appendChild(tdNombre);
   trContacto.appendChild(tdTelefono);
