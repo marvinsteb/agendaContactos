@@ -43,6 +43,10 @@
       </div><!-- .contenido-->
 
       <div class="contenido existentes">
+        <div class="buscar">
+          <h2>Buscar</h2>
+          <input type="text" name="buscador" id="buscador" placeholder="Buscar" class="buscador">
+        </div>
       <h2>Lista de contactos</h2>
       <p> Numero de contactos:<?php echo $datos->num_rows;?>
       </p>
