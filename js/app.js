@@ -6,6 +6,7 @@ var tablaRegistrados = document.getElementById("registrados");
 var checkBoxesBorrar = document.getElementsByClassName("borrar_contacto");
 var btnBorrar = document.getElementById("btn_borrar");
 var tableBody = document.getElementsByTagName("tbody");
+var divExistentes = document.getElementsByClassName("existentes");
 
 function registroExitoso(nombre) {
   var divMensaje = document.createElement("DIV");
@@ -104,6 +105,21 @@ function eliminarContactoHtml(ids_borrados) {
     tableBody[0].removeChild(contactoEliminado);
   }
 }
+function mensajeContactoEliminado() {
+  var divEliminado = document.createElement("DIV");
+  divEliminado.setAttribute("id", "borrado");
+  var textoDiv = document.createTextNode("Eliminado de lista de contactos");
+  divEliminado.appendChild(textoDiv);
+  divExistentes[0].insertBefore(divEliminado, divExistentes[0].childNodes[0]);
+  divEliminado.classList.add("mostrar");
+  setTimeout(function () {
+    divEliminado.classList.add("ocultar");
+    setTimeout(function () {
+      var divPadreMensaje = divEliminado.parentNode;
+      divPadreMensaje.removeChild(divEliminado);
+    }, 500);
+  }, 3000);
+}
 
 function eliminarContactos(contactos) {
   var xhr = new XMLHttpRequest();
@@ -118,6 +134,7 @@ function eliminarContactos(contactos) {
       } else {
         console.log("Resultado: " + resultadoContactoEliminado);
         eliminarContactoHtml(contactos);
+        mensajeContactoEliminado();
       }
     }
   };
