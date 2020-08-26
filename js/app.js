@@ -136,7 +136,6 @@ function eliminarContactos(contactos) {
         console.log("Resultado: " + resultadoContactoEliminado);
         eliminarContactoHtml(contactos);
         mensajeContactoEliminado();
-        var ex = new RegExp(contactoBuscar, "i");
       }
     }
   };
@@ -168,6 +167,8 @@ function mostrarContactos(contactoBuscar) {
         .replace(/\s/g, "")
         .search(ex) != -1
     ) {
+      listaContactos[i].style.display = "table-row";
+    }else if(contactoBuscar == ''){
       listaContactos[i].style.display = "table-row";
     }
   }
