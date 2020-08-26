@@ -48,8 +48,7 @@
           <input type="text" name="buscador" id="buscador" placeholder="Buscar" class="buscador">
         </div>
       <h2>Lista de contactos</h2>
-      <p> Numero de contactos:<?php echo $datos->num_rows;?>
-      </p>
+      <p> Numero de contactos: <span id="totalContactos"><?php echo $datos->num_rows;?></span></p>
       <table id="registrados">
         <thead>
          <tr>

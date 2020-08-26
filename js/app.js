@@ -8,6 +8,7 @@ var btnBorrar = document.getElementById("btn_borrar");
 var tableBody = document.getElementsByTagName("tbody");
 var divExistentes = document.getElementsByClassName("existentes");
 var inputBuscador = document.getElementById("buscador");
+var totalContacto = document.getElementById("totalContactos");
 
 function registroExitoso(nombre) {
   var divMensaje = document.createElement("DIV");
@@ -156,10 +157,29 @@ btn_borrar.addEventListener("click", function () {
   checkboxSeleccionados();
 });
 
+function actualizarCantidadContactos() {
+  var cantidadContactos = tableBody[0].getElementsByTagName("tr");
+  var cantidad = 0;
+  var ocultos = 0;
+  for (var i = 0; i < cantidadContactos.length; i++) {
+    if (cantidadContactos[i].style.display == "table-row") {
+      cantidad++;
+      totalContacto.innerHTML = cantidad;
+    } else {
+      if (cantidadContactos[i].style.display == "none") {
+        ocultos++;
+        if (ocultos == cantidadContactos.length) {
+          ocultos -= cantidadContactos.length;
+          totalContacto.innerHTML = ocultos;
+        }
+      }
+    }
+  }
+}
 function mostrarContactos(contactoBuscar) {
   var listaContactos = tableBody[0].getElementsByTagName("tr");
   var ex = new RegExp(contactoBuscar, "i");
-  
+
   for (var i = 0; i < listaContactos.length; i++) {
     listaContactos[i].style.display = "none";
     if (
@@ -168,10 +188,11 @@ function mostrarContactos(contactoBuscar) {
         .search(ex) != -1
     ) {
       listaContactos[i].style.display = "table-row";
-    }else if(contactoBuscar == ''){
+    } else if (contactoBuscar == "") {
       listaContactos[i].style.display = "table-row";
     }
   }
+  actualizarCantidadContactos();
 }
 
 inputBuscador.addEventListener("input", function () {
