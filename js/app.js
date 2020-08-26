@@ -7,6 +7,7 @@ var checkBoxesBorrar = document.getElementsByClassName("borrar_contacto");
 var btnBorrar = document.getElementById("btn_borrar");
 var tableBody = document.getElementsByTagName("tbody");
 var divExistentes = document.getElementsByClassName("existentes");
+var inputBuscador = document.getElementById("buscador");
 
 function registroExitoso(nombre) {
   var divMensaje = document.createElement("DIV");
@@ -135,6 +136,7 @@ function eliminarContactos(contactos) {
         console.log("Resultado: " + resultadoContactoEliminado);
         eliminarContactoHtml(contactos);
         mensajeContactoEliminado();
+        var ex = new RegExp(contactoBuscar, "i");
       }
     }
   };
@@ -153,4 +155,24 @@ function checkboxSeleccionados() {
 
 btn_borrar.addEventListener("click", function () {
   checkboxSeleccionados();
+});
+
+function mostrarContactos(contactoBuscar) {
+  var listaContactos = tableBody[0].getElementsByTagName("tr");
+  var ex = new RegExp(contactoBuscar, "i");
+  
+  for (var i = 0; i < listaContactos.length; i++) {
+    listaContactos[i].style.display = "none";
+    if (
+      listaContactos[i].childNodes[1].textContent
+        .replace(/\s/g, "")
+        .search(ex) != -1
+    ) {
+      listaContactos[i].style.display = "table-row";
+    }
+  }
+}
+
+inputBuscador.addEventListener("input", function () {
+  mostrarContactos(this.value);
 });
