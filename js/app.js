@@ -51,6 +51,13 @@ function construirTemplate(nombre, telefono, idContacto) {
   checkBorrar.type = "checkbox";
   checkBorrar.name = idContacto;
   checkBorrar.classList.add("borrar_contacto");
+  checkBorrar.addEventListener("change", function () {
+    if (this.checked) {
+      this.parentNode.parentNode.classList.add("activo");
+    } else {
+      this.parentNode.parentNode.classList.remove("activo");
+    }
+  });
   var tdCheckbox = document.createElement("TD");
   tdCheckbox.classList.add("borrar");
   tdCheckbox.appendChild(checkBorrar);
@@ -101,6 +108,7 @@ for (var i = 0; i < checkBoxesBorrar.length; i++) {
     }
   });
 }
+
 function eliminarContactoHtml(ids_borrados) {
   for (var i = 0; i < ids_borrados.length; i++) {
     var contactoEliminado = document.getElementById(ids_borrados[i]);
