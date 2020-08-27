@@ -51,7 +51,10 @@ div.campo label {
   font-family: Arial, Helvetica, Serif;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 14px !important;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: right;
+  margin-right: 20px;
 }
 div.campo input {
   height: 30px;
