@@ -27,6 +27,15 @@ function registroExitoso(nombre) {
   }, 3000);
 }
 
+function agregarClaseActivo(checkboxActual) {
+  console.log("ejecutando");
+  if (checkboxActual.checked) {
+    checkboxActual.parentNode.parentNode.classList.add("activo");
+  } else {
+    checkboxActual.parentNode.parentNode.classList.remove("activo");
+  }
+}
+
 function construirTemplate(nombre, telefono, idContacto) {
   var tdId = document.createElement("TD");
   var textoId = document.createTextNode(idContacto);
@@ -52,11 +61,7 @@ function construirTemplate(nombre, telefono, idContacto) {
   checkBorrar.name = idContacto;
   checkBorrar.classList.add("borrar_contacto");
   checkBorrar.addEventListener("change", function () {
-    if (this.checked) {
-      this.parentNode.parentNode.classList.add("activo");
-    } else {
-      this.parentNode.parentNode.classList.remove("activo");
-    }
+    agregarClaseActivo(this);
   });
   var tdCheckbox = document.createElement("TD");
   tdCheckbox.classList.add("borrar");
@@ -101,11 +106,7 @@ agregarContacto.addEventListener("click", function (e) {
 
 for (var i = 0; i < checkBoxesBorrar.length; i++) {
   checkBoxesBorrar[i].addEventListener("change", function () {
-    if (this.checked) {
-      this.parentNode.parentNode.classList.add("activo");
-    } else {
-      this.parentNode.parentNode.classList.remove("activo");
-    }
+    agregarClaseActivo(this);
   });
 }
 
