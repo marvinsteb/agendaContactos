@@ -9,6 +9,7 @@ var tableBody = document.getElementsByTagName("tbody");
 var divExistentes = document.getElementsByClassName("existentes");
 var inputBuscador = document.getElementById("buscador");
 var totalContacto = document.getElementById("totalContactos");
+var checkboxBorrarTodos = document.getElementById("borrar_todos");
 
 function registroExitoso(nombre) {
   var divMensaje = document.createElement("DIV");
@@ -208,4 +209,19 @@ function mostrarContactos(contactoBuscar) {
 
 inputBuscador.addEventListener("input", function () {
   mostrarContactos(this.value);
+});
+
+/* selecciona todos los contactos*/
+checkboxBorrarTodos.addEventListener("click", function () {
+  if (this.checked) {
+    var listaContactos = tableBody[0].getElementsByTagName("tr");
+    for (var i = 0; i < checkBoxesBorrar.length; i++) {
+      checkBoxesBorrar[i].checked = true;
+    }
+  } else {
+    var listaContactos = tableBody[0].getElementsByTagName("tr");
+    for (var i = 0; i < checkBoxesBorrar.length; i++) {
+      checkBoxesBorrar[i].checked = false;
+    }
+  }
 });
