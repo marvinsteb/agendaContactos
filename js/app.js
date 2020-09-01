@@ -190,14 +190,16 @@ function mostrarContactos(contactoBuscar) {
   var ex = new RegExp(contactoBuscar, "i");
 
   for (var i = 0; i < listaContactos.length; i++) {
+    listaContactos[i].classList.add("ocultar");
     listaContactos[i].style.display = "none";
     if (
       listaContactos[i].childNodes[1].textContent
         .replace(/\s/g, "")
-        .search(ex) != -1
+        .search(ex) != -1 ||
+      contactoBuscar == ""
     ) {
-      listaContactos[i].style.display = "table-row";
-    } else if (contactoBuscar == "") {
+      listaContactos[i].classList.add("mostrar");
+      listaContactos[i].classList.remove("ocultar");
       listaContactos[i].style.display = "table-row";
     }
   }
