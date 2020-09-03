@@ -227,3 +227,5 @@ checkboxBorrarTodos.addEventListener("click", function () {
     }
   }
 });
+
+// editar registros

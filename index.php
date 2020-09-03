@@ -65,15 +65,15 @@
         <tbody>
         <?php
           while($usuario = $datos->fetch_assoc()) {
-            echo "<tr id='{$usuario['idcontacto']}'>";
-            foreach ($usuario as $llave => $valor) {
-              echo "<td>{$valor}</td>";
-            }
-             echo "<td class='editar'><a href='editar.php?id={$usuario['idcontacto']}'>Editar</a></td>";
-             echo "<td class='borrar'><input class='borrar_contacto' type='checkbox' name='{$usuario['idcontacto']}'></td>";
-            echo "</tr>";
-          } 
-        ?>
+            ?>
+            <tr id='<?php echo $usuario['idcontacto'];?>'>
+              <td><?php echo $usuario['idcontacto'];?></td>
+              <td><?php echo $usuario['nombre'];?></td>
+              <td><?php echo $usuario['telefono'];?></td>
+              <td class='editar'><a href='editar.php?id=<?php echo $usuario['idcontacto'];?>'>Editar</a></td>
+              <td class='borrar'><input class='borrar_contacto' type='checkbox' name='<?php echo $usuario['idcontacto'];?>'></td>
+            </tr>
+          <?php } ?>
         
         </tbody>
       </table>
