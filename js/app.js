@@ -217,11 +217,13 @@ checkboxBorrarTodos.addEventListener("click", function () {
     var listaContactos = tableBody[0].getElementsByTagName("tr");
     for (var i = 0; i < checkBoxesBorrar.length; i++) {
       checkBoxesBorrar[i].checked = true;
+      listaContactos[i].classList.add("activo");
     }
   } else {
     var listaContactos = tableBody[0].getElementsByTagName("tr");
     for (var i = 0; i < checkBoxesBorrar.length; i++) {
       checkBoxesBorrar[i].checked = false;
+      listaContactos[i].classList.remove("activo");
     }
   }
 });
