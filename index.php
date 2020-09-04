@@ -5,7 +5,7 @@
                             ct.idcontacto,
                             ct.nombre,
                             ct.telefono
-                            from contacto as ct order by ct.idcontacto desc ";
+                            from contacto as ct order by ct.idcontacto";
     $datos = $conexion->query($querySelectContacto);
   } catch (Exception $e) {
     $error = $e->getMessage();
@@ -64,14 +64,20 @@
         </thead>
         <tbody>
         <?php
-          while($usuario = $datos->fetch_assoc()) {
+          while($contacto = $datos->fetch_assoc()){
             ?>
-            <tr id='<?php echo $usuario['idcontacto'];?>'>
-              <td><?php echo $usuario['idcontacto'];?></td>
-              <td><?php echo $usuario['nombre'];?></td>
-              <td><?php echo $usuario['telefono'];?></td>
-              <td class='editar'><a href='editar.php?id=<?php echo $usuario['idcontacto'];?>'>Editar</a></td>
-              <td class='borrar'><input class='borrar_contacto' type='checkbox' name='<?php echo $usuario['idcontacto'];?>'></td>
+            <tr id='<?php echo $contacto['idcontacto'];?>'>
+              <td><?php echo $contacto['idcontacto'];?></td>
+              <td>
+                <?php echo $contacto['nombre'];?>
+                <input type="text" class='nombre' value='<?php echo $contacto['nombre'];?>' name="nombre_<?php echo $contacto['idcontacto']?>">
+              </td>
+              <td>
+                <?php echo $contacto['telefono'];?>
+                <input type="text" class='telefono' value='<?php echo $contacto['telefono'];?>' name="telefono_<?php echo $contacto['idcontacto']?>">
+              </td>
+              <td class='editar'><a href='editar.php?id=<?php echo $contacto['idcontacto'];?>'>Editar</a></td>
+              <td class='borrar'><input class='borrar_contacto' type='checkbox' name='<?php echo $contacto['idcontacto'];?>'></td>
             </tr>
           <?php } ?>
         
