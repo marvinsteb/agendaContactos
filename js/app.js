@@ -53,7 +53,7 @@ function construirTemplate(nombre, telefono, idContacto) {
   var nodoBtn = document.createElement("A");
   var textoEnlace = document.createTextNode("Editar");
   nodoBtn.appendChild(textoEnlace);
-  nodoBtn.href = "editar.php?id=" + idContacto;
+  nodoBtn.href = "#";
   var tdEditar = document.createElement("TD");
   tdEditar.appendChild(nodoBtn);
 
@@ -67,6 +67,19 @@ function construirTemplate(nombre, telefono, idContacto) {
   var tdCheckbox = document.createElement("TD");
   tdCheckbox.classList.add("borrar");
   tdCheckbox.appendChild(checkBorrar);
+
+  // crear input con el nombre
+  var inputNombre = document.createElement("INPUT");
+  inputNombre.type = "text";
+  inputNombre.name = "contacto_" + idContacto;
+  inputNombre.value = nombre;
+  tdNombre.appendChild(inputNombre);
+
+  var inputTelefono = document.createElement("INPUT");
+  inputTelefono.type = "text";
+  inputTelefono.name = "telefono_" + telefono;
+  inputTelefono.value = telefono;
+  tdTelefono.appendChild(inputTelefono);
 
   var trContacto = document.createElement("TR");
   trContacto.setAttribute("id", idContacto);
@@ -227,5 +240,3 @@ checkboxBorrarTodos.addEventListener("click", function () {
     }
   }
 });
-
-// editar registros

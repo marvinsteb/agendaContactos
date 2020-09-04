@@ -76,7 +76,10 @@
                 <?php echo $contacto['telefono'];?>
                 <input type="text" class='telefono' value='<?php echo $contacto['telefono'];?>' name="telefono_<?php echo $contacto['idcontacto']?>">
               </td>
-              <td class='editar'><a href='editar.php?id=<?php echo $contacto['idcontacto'];?>'>Editar</a></td>
+              <td>
+              <a href='#' class='editarbtn'>Editar</a>
+              <a href='#'>Guardar</a>
+              </td>
               <td class='borrar'><input class='borrar_contacto' type='checkbox' name='<?php echo $contacto['idcontacto'];?>'></td>
             </tr>
           <?php } ?>
