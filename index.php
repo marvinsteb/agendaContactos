@@ -69,16 +69,16 @@
             <tr id='<?php echo $contacto['idcontacto'];?>'>
               <td><?php echo $contacto['idcontacto'];?></td>
               <td>
-                <?php echo $contacto['nombre'];?>
+                <p><?php echo $contacto['nombre'];?></p>
                 <input type="text" class='nombre' value='<?php echo $contacto['nombre'];?>' name="nombre_<?php echo $contacto['idcontacto']?>">
               </td>
               <td>
-                <?php echo $contacto['telefono'];?>
+                <p><?php echo $contacto['telefono'];?></p>
                 <input type="text" class='telefono' value='<?php echo $contacto['telefono'];?>' name="telefono_<?php echo $contacto['idcontacto']?>">
               </td>
               <td>
               <a href='#' class='editarbtn'>Editar</a>
-              <a href='#'>Guardar</a>
+              <a href='#' class= 'guardarbtn'>Guardar</a>
               </td>
               <td class='borrar'><input class='borrar_contacto' type='checkbox' name='<?php echo $contacto['idcontacto'];?>'></td>
             </tr>

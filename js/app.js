@@ -52,6 +52,7 @@ function construirTemplate(nombre, telefono, idContacto) {
 
   var nodoBtn = document.createElement("A");
   var textoEnlace = document.createTextNode("Editar");
+  nodoBtn.classList.add("editarbtn");
   nodoBtn.appendChild(textoEnlace);
   nodoBtn.href = "#";
   var tdEditar = document.createElement("TD");
@@ -245,4 +246,20 @@ checkboxBorrarTodos.addEventListener("click", function () {
       listaContactos[i].classList.remove("activo");
     }
   }
+});
+
+/* editar registros*/
+function recorrerBotonesEditar() {
+  var btn_editar = tableBody[0].querySelectorAll(".editarbtn");
+  for (var i = 0; i < btn_editar.length; i++) {
+    btn_editar[i].addEventListener("click", function (event) {
+      event.preventDefault();
+      var registroactivo = this.parentNode.parentNode;
+      registroactivo.classList.add("modo-edicion");
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  recorrerBotonesEditar();
 });

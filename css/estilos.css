@@ -205,3 +205,16 @@ td.borrar input {
 .activo {
   background-color: red !important;
 }
+
+/*modo edicion */
+.modo-edicion p,
+.modo-edicion .editarbtn,
+tbody tr input[type="text"],
+div.existentes table tr a.guardarbtn {
+  display: none;
+}
+
+.modo-edicion input[type="text"],
+div.existentes table tr.modo-edicion a.guardarbtn {
+  display: block;
+}
