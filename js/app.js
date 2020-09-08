@@ -57,6 +57,12 @@ function construirTemplate(nombre, telefono, idContacto) {
   var tdEditar = document.createElement("TD");
   tdEditar.appendChild(nodoBtn);
 
+  var btnGuardar = document.createElement("A");
+  var textoGuardar = document.createTextNode("Guardar");
+  btnGuardar.appendChild(textoGuardar);
+  btnGuardar.href = "#";
+  tdEditar.appendChild(btnGuardar);
+
   var checkBorrar = document.createElement("INPUT");
   checkBorrar.type = "checkbox";
   checkBorrar.name = idContacto;
