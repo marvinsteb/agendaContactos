@@ -11,6 +11,18 @@ var inputBuscador = document.getElementById("buscador");
 var totalContacto = document.getElementById("totalContactos");
 var checkboxBorrarTodos = document.getElementById("borrar_todos");
 
+function downloadObjectAsJson(exportObj, exportName) {
+  var dataStr =
+    "data:text/json;charset=utf-8," +
+    encodeURIComponent(JSON.stringify(exportObj));
+  var downloadAnchorNode = document.createElement("a");
+  downloadAnchorNode.setAttribute("href", dataStr);
+  downloadAnchorNode.setAttribute("download", exportName + ".json");
+  document.body.appendChild(downloadAnchorNode); // required for firefox
+  downloadAnchorNode.click();
+  downloadAnchorNode.remove();
+}
+
 function registroExitoso(nombre) {
   var divMensaje = document.createElement("DIV");
   divMensaje.setAttribute("id", "mensaje");
@@ -111,6 +123,7 @@ function crearUsuario() {
     if (xhr.readyState == 4 && xhr.status == 200) {
       var resultado = xhr.responseText;
       var json = JSON.parse(resultado);
+      downloadObjectAsJson(json, "prueba");
       console.log(resultado);
       if (json.respuesta == true) {
         registroExitoso(json.nombre);
