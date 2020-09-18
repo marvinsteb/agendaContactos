@@ -111,6 +111,7 @@ function crearUsuario() {
     if (xhr.readyState == 4 && xhr.status == 200) {
       var resultado = xhr.responseText;
       var json = JSON.parse(resultado);
+      console.log(resultado);
       if (json.respuesta == true) {
         registroExitoso(json.nombre);
         construirTemplate(json.nombre, json.telefono, json.id);

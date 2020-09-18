@@ -19,8 +19,16 @@
               ";
 
     $resultado = $conexion->query($query);
+
+    $titulares = array();
+    $camposMinimos = array();
+  
+    $camposMinimos["tipoActuacion"] = "C";
+    $titulares[] = $camposMinimos;
+
     if(peticion_ajax()) {
       echo json_encode(array(
+        'titulares' => $titulares,
         'respuesta' => $resultado,
         'nombre' => $nombre,
         'telefono' => $numero ,
